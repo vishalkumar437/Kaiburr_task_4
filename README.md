@@ -1,4 +1,25 @@
+# Task 4
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Tech Stack
+
+ >Typescript
+ >NextJs
+ >Tailwind
+
+
+## ScreenShots 
+
+### Create
+
+![create](ScreenShots/ezgif-4-92c4d20b84.gif)
+
+### Update
+
+![Update](ScreenShots/ezgif-4-2c24906fcf.gif)
+
+### Delete 
+![Delete](ScreenShots/ezgif-4-b468cc320a.gif)
 
 ## Getting Started
 
