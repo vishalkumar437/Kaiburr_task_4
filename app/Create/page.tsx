@@ -3,7 +3,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-const CreateServer = () => {
+const CreateServer = ({fetch}:any) => {
   const [formData, setFormData] = useState({
     name: "",
     language: "",
@@ -18,22 +18,22 @@ const CreateServer = () => {
         [event.target.name]: event.target.value,
       }));
   };
-
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(formData)
+    // console.log(formData)
+    
     try {
       const response = await axios.put("http://localhost:8080/putServer",formData);
-    //   alert(data);
+      fetch();
     } catch (error) {
       console.error("Error:", error);
     }
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white border rounded shadow">
-      <h1 className="text-2xl mb-4">Create Server</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-2xl mx-auto mt-10 p-6 bg-white border rounded shadow">
+      <h1 className="text-2xl text-center mb-2 ">Create Server</h1>
+      <form onSubmit={handleSubmit} className="space-y-1">
         <div>
           <label className="block mb-2 font-bold">Name:</label>
           <input

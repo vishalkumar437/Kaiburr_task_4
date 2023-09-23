@@ -6,9 +6,6 @@ import { useState } from 'react';
 const UpdateServer = ({fetch}:any) => {
     const [formData, setFormData] = useState({
         id:"",
-        name: "",
-        language: "",
-        framework: "",
       });
       const handleChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -20,14 +17,9 @@ const UpdateServer = ({fetch}:any) => {
       };
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    const data = {
-        name:formData.name,
-        language:formData.language,
-        framework:formData.framework
-    }
     try {
-      const response = await axios.put(`http://localhost:8080/updateServers/${formData.id}`,data);
-      fetch();
+      const response = await axios.delete(`http://localhost:8080/deleteServer/${formData.id}`)
+      fetch()
     } catch (error) {
       console.error('Error:', error);
     }
@@ -47,35 +39,8 @@ const UpdateServer = ({fetch}:any) => {
             required
           />
         </div>
-      <div>
-          <label className="block mb-2 font-bold">Name:</label>
-          <input
-            type="text"
-            name="name"
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </div>
-        <div>
-          <label className="block mb-2 font-bold">Language:</label>
-          <input
-            type="text"
-            name="language"
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </div>
-        <div>
-          <label className="block mb-2 font-bold">Framework:</label>
-          <input
-            type="text"
-            name="framework"
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-          />
-        </div>
         <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
-          Submit
+          Delete
         </button>
       </form>
     </div>
