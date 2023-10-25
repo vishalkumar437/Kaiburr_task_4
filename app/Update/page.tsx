@@ -26,7 +26,7 @@ const UpdateServer = ({fetch}:any) => {
         framework:formData.framework
     }
     try {
-      const response = await axios.put(`http://localhost:8080/updateServers/${formData.id}`,data);
+      const response = await axios.put(`${process.env.NEXT_PUBLIC_API_LINK}/updateServers/${formData.id}`,data);
       fetch();
     } catch (error) {
       console.error('Error:', error);

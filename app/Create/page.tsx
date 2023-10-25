@@ -23,7 +23,7 @@ const CreateServer = ({fetch}:any) => {
     // console.log(formData)
     
     try {
-      const response = await axios.put("http://localhost:8080/putServer",formData);
+      const response = await axios.put(`${process.env.NEXT_PUBLIC_API_LINK}/putServer`,formData);
       fetch();
     } catch (error) {
       console.error("Error:", error);

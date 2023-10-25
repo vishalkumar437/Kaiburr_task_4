@@ -18,7 +18,7 @@ const UpdateServer = ({fetch}:any) => {
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     try {
-      const response = await axios.delete(`http://localhost:8080/deleteServer/${formData.id}`)
+      const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_LINK}/deleteServer/${formData.id}`)
       fetch()
     } catch (error) {
       console.error('Error:', error);

@@ -17,7 +17,7 @@ export default function Home() {
 
   const fetchServers = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/getServers",{
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_LINK}/getServers`,{
         headers: { "Access-Control-Allow-Origin": "*" },
       })
       setServers(response.data);
